@@ -1,0 +1,158 @@
+<!doctype html>
+{% load staticfiles %}
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HTML Мобильное расписание городского автотранспорта в Великом Новгороде</title>
+    <meta name="description" content="Расписание автобусов и троллейбусов в городе Великий Новгород">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="maket" class="home-frame">
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h1>Мобильное расписание</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="week-day">
+                    <label><input class="radiob" checked="checked" name="week" type="radio"><span>Будний</span></label>
+                    <label><input class="radiob" name="week" type="radio"><span>Суббота</span></label>
+                    <label><input class="radiob" name="week" type="radio"><span>Воскресенье</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h2>Теперь, выберите необходимый Вам маршрут автобуса или троллейбуса:</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s6">
+                <div class="leftcol">
+                    <h3>
+                        <img class="icons" src="{% static 'front-bus.png' %}" />
+                        </br>Автобус </br>№:</h3>
+
+                    {% for bus in buses %}
+                        <form action="http://transport.nov.ru/urban_trans/1/" method="get" method="get" >
+                            <button type="submit" name="mar" value="{{ bus.code }}_r" class="btn">{{ bus.name}}</button>
+                        </form>
+
+                    {% endfor %}
+                    <form action="http://httpbin.org/get" method="get" method="get" >
+                        <button type="submit" name="number" value="Bus-number-11" class="btn">11</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-1a" class="btn">1a</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-9" class="btn">9</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-8" class="btn">8</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-16" class="btn">16</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col s6">
+                <div class="rightcol">
+                    <h3>
+                        <img class="icons" src="{% static 'trolleybuses.png' %}">
+                        </br>Троллейбус </br>№:</h3>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-1" class="btn">1</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-2" class="btn">2</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-3" class="btn">3</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-4" class="btn">4</button>
+                    </form>
+                    <form action="http://httpbin.org/get" method="get">
+                        <button type="submit" name="number" value="Bus-number-5" class="btn">5</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <hr>
+                &copy; Maxim Spiridonov, Ilya Pavlov 2017 <br>
+                Информация взята с сайта <a href="transport.nov.ru">transport.nov.ru</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    /*
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+    */
+</script>
+</body>
+</html>

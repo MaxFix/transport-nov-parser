@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from .transport import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^main', views.main),
+    url(r'^schedule/', views.schedule),
+    url(r'^bus_schedule/', views.bus_schedule),
 ]
+

@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
 ]
 
+STATIC_URL = '/static/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -164,8 +166,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'
 
 
 # Logging
