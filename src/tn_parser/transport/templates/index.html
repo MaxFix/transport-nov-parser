@@ -64,12 +64,23 @@
                         </br>Автобус </br>№:</h3>
 
                     {% for bus in buses %}
-                        <form action="http://transport.nov.ru/urban_trans/1/" method="get" method="get" >
-                            <button type="submit" name="mar" value="{{ bus.code }}_r" class="btn">{{ bus.name}}</button>
+                        <form action="http://localhost:8000/schedule/" method="get" >
+                            <button type="submit" name="mar" value="{{ bus.code }}" class="btn">{{ bus.name}}</button>
                         </form>
 
                     {% endfor %}
-                    <form action="http://httpbin.org/get" method="get" method="get" >
+
+                <!-- trolleybus section -->
+
+                    {% for trolleybus in trolleybuses %}
+                        <form action="http://localhost:8000/schedule/" method="get" >
+                            <button type="submit" name="mar" value="{{ trolleybus.code }}" class="btn">{{ trolleybus.name}}</button>
+                        </form>
+
+                    {% endfor %}
+
+
+                    <form action="http://httpbin.org/get" method="get" >
                         <button type="submit" name="number" value="Bus-number-11" class="btn">11</button>
                     </form>
                     <form action="http://httpbin.org/get" method="get">
@@ -92,6 +103,8 @@
                     <h3>
                         <img class="icons" src="{% static 'trolleybuses.png' %}">
                         </br>Троллейбус </br>№:</h3>
+
+
                     <form action="http://httpbin.org/get" method="get">
                         <button type="submit" name="number" value="Bus-number-1" class="btn">1</button>
                     </form>
