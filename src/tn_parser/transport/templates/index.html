@@ -62,23 +62,17 @@
                     <h3>
                         <img class="icons" src="{% static 'front-bus.png' %}" />
                         </br>Автобус </br>№:</h3>
+                    {% if bus == Null or buses == Null %}
+                        {% for bus in buses %}
 
-                    {% for bus in buses %}
-                        <form action="http://localhost:8000/schedule/" method="get" >
-                            <button type="submit" name="mar" value="{{ bus.code }}" class="btn">{{ bus.name}}</button>
-                        </form>
+                            <form action="schedule/" method="get" >
+                                <button type="submit" name="mar" value="{{ bus.code }}" class="btn">{{ bus.name}}</button>
+                            </form>
 
-                    {% endfor %}
-
-                <!-- trolleybus section -->
-
-                    {% for trolleybus in trolleybuses %}
-                        <form action="http://localhost:8000/schedule/" method="get" >
-                            <button type="submit" name="mar" value="{{ trolleybus.code }}" class="btn">{{ trolleybus.name}}</button>
-                        </form>
-
-                    {% endfor %}
-
+                        {% endfor %}
+                    {% else %}
+                        <p>Sorry, route does not exist</p>
+                    {% endif %}
 
                     <form action="http://httpbin.org/get" method="get" >
                         <button type="submit" name="number" value="Bus-number-11" class="btn">11</button>
@@ -104,6 +98,13 @@
                         <img class="icons" src="{% static 'trolleybuses.png' %}">
                         </br>Троллейбус </br>№:</h3>
 
+                    {% for trolleybus in trolleybuses %}
+
+                        <form action="schedule/" method="get" >
+                            <button type="submit" name="mar" value="{{ trolleybus.code }}" class="btn">{{ trolleybus.name}}</button>
+                        </form>
+
+                    {% endfor %}
 
                     <form action="http://httpbin.org/get" method="get">
                         <button type="submit" name="number" value="Bus-number-1" class="btn">1</button>
