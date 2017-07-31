@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Route, RouteTypes
+from .models import Route, RouteTypes, RoutePoint
 
 
 def main(request):
@@ -10,7 +10,9 @@ def main(request):
 
 
 def schedule(request):
-    return render(request, 'schedule.html', {})
+    routes = RoutePoint.objects.filter(route=Route)
+
+    return render(request, 'schedule.html', {'routes': routes})
 
 
 def bus_schedule(request):
