@@ -10,7 +10,7 @@ def main(request):
 
 def schedule(request):
     route = Route.objects.filter(code=request.GET['mar']).first()
-    stops = RoutePoint.object.filter(route=route)
+    stops = RoutePoint.objects.filter(route=route)
 
     return render(request, 'schedule.html', {'stops': stops})
 

@@ -40,36 +40,9 @@
 
                     {% for stop in stops %}
                         <form action="/bus_schedule/" method="get">
-                            <a type="submit" name="stop" value="{{ stop.code }}" class="waves-effect waves-light btn">{{ stop.name }}</a>
+                            <a type="submit" name="stp" value="{{ stop.stop.id }}" class="waves-effect waves-light btn">{{ stop.stop.platform.name }}</a>
                         </form>
                     {% endfor %}
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-2" class="waves-effect waves-light btn">Остановка 2 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-3" class="waves-effect waves-light btn">Остановка 3 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-4" class="waves-effect waves-light btn">Остановка 4 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-5" class="waves-effect waves-light btn">Остановка 5 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-6" class="waves-effect waves-light btn">Остановка 6 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-7" class="waves-effect waves-light btn">Остановка 7 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-8" class="waves-effect waves-light btn">Остановка 8 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-9" class="waves-effect waves-light btn">Остановка 9 название</a>
-                    </form>
-                    <form method="get" action="http://httpbin.org/get" method="get">
-                        <a type="submit" name="station" value="Bus-station-10" class="waves-effect waves-light btn">Остановка 10 название</a>
-                    </form>
                 </div>
             </div>
         </div>
