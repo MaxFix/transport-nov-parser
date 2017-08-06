@@ -8,12 +8,11 @@ def main(request):
 
     return render(request, 'index.html', {'buses': buses, 'trolleybuses': trolleybuses})
 
-
 def schedule(request):
-    routes = RoutePoint.objects.filter(route=Route)
+    route = Route.objects.filter(code=request.GET['mar']).first()
+    stops = RoutePoint.object.filter(route=route)
 
-    return render(request, 'schedule.html', {'routes': routes})
-
+    return render(request, 'schedule.html', {'stops': stops})
 
 def bus_schedule(request):
     return render(request, 'bus_schedule.html', {})

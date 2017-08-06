@@ -38,9 +38,9 @@
             <div class="col s12">
                 <div class="cols">
 
-                    {% for route in routes %}
+                    {% for stop in stops %}
                         <form action="/bus_schedule/" method="get">
-                            <a type="submit" name="station" value="Bus-station-1" class="waves-effect waves-light btn">Остановка 1 название</a>
+                            <a type="submit" name="stop" value="{{ stop.code }}" class="waves-effect waves-light btn">{{ stop.name }}</a>
                         </form>
                     {% endfor %}
                     <form method="get" action="http://httpbin.org/get" method="get">
