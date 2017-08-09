@@ -30,7 +30,17 @@
                 <h2>Расписание движения общественного транспорта в Великом Новгороде</h2>
                 <h3>
                     <i class="material-icons">location_on</i>
-                    Выберите остановку:</h3>
+                    Выберите остановку, для маршрута
+
+                    {% if type_m == bus %}
+                        <p>{{ mar_n }}</p>
+                    {% elif type_m == trolleybus %}
+                        <p>{{ mar_n }}</p>
+                        {% else %}
+                        <p>Error</p>
+                    {% endif %}
+
+                </h3>
             </div>
         </div>
 
