@@ -51,6 +51,7 @@
                     {% for stop in stops %}
                         <form action="/bus_schedule/" method="get">
                             <button type="submit" name="stp" value="{{ stop.stop.id }}" class="waves-effect waves-light btn">{{ stop.stop.platform.name }}</button>
+                            <p><input type="hidden" name="mar" value="{{ mar }}"></p>
                         </form>
                     {% endfor %}
                 </div>
