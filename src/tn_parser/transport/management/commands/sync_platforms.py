@@ -4,8 +4,8 @@ import logging
 
 from django.core.management.base import BaseCommand, CommandError
 
-from tn_parser.transport.models import RouteTypes
-from tn_parser.transport.sync import sync_platforms_from_2gis_api
+from ...models import RouteTypes
+from ...sync import sync_platforms_from_2gis_api
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class Command(BaseCommand):
 
         key = options['api_key'][0] if isinstance(options['api_key'], (list, tuple)) else options['api_key']
         # bus routes
-        stats = sync_platforms_from_2gis_api(key)
+        stats = sync_platforms_from_2gis_api(key, RouteTypes.BUS)
 
         self.stdout.write(
             'Sync bus routes platforms for bus ' +

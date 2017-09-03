@@ -1,6 +1,11 @@
+ve
+.ve
+venv
 .venv
+.ve*
 .idea
 .env
+*.env*
 
 *.py[cod]
 *.cache
@@ -13,3 +18,6 @@
 __pycache__
 
 *.egg-info
+
+*.DS_Store
+Thumbs.db
