@@ -64,11 +64,9 @@
                         </br>Автобус </br>№:</h3>
                     {% if bus == Null or buses == Null %}
                         {% for bus in buses %}
-
                             <form action="/schedule/" method="get" >
                                 <button type="submit" name="mar" value="{{ bus.code }}" class="btn">{{ bus.name}}</button>
                             </form>
-
                         {% endfor %}
                     {% else %}
                         <p>Sorry, route does not exist</p>
@@ -85,11 +83,9 @@
                         </br>Троллейбус </br>№:</h3>
 
                     {% for trolleybus in trolleybuses %}
-
                         <form action="/schedule/" method="get" >
                             <button type="submit" name="mar" value="{{ trolleybus.code }}" class="btn">{{ trolleybus.name}}</button>
                         </form>
-
                     {% endfor %}
 
                 </div>
