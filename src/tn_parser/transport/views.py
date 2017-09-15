@@ -19,7 +19,7 @@ def schedule(request):
     except ObjectDoesNotExist:
         raise Http404('Не найден маршрут')
     except KeyError:
-        raise Http404('Не найден mar param')
+        raise Http404('Не найден параметр маршрута')
 
     return render(request, 'schedule.html', {'stops': stops, 'type_m': route.type, 'mar_n': route.name, 'bus': RouteTypes.BUS, 'trolleybus': RouteTypes.TROLLEYBUS, 'mar': request.GET['mar']})
 
@@ -27,11 +27,14 @@ def schedule(request):
 #корректное получение get запроса
 
 def bus_schedule(request):
-    #через query set GET получить остановку (вместо фильтар)
-    #получить из ... маршрут
-    #получить время из роут поин через фильтр, отформатировать и отобразить (список с одним элементом)
-    stop = Stop.objects.get(id=request.GET['stp']) # неверно, Stop не итерируемый объект, несостыковка типов?
-    mar_bs = Route.objects.filter(code=request.GET['mar'])
-    mar_time = RoutePoint.objects.filter(route= mar_bs,stop= stop) # похоже на бред
+    try:
+        stop = Stop.objects.get(id=request.GET['stp'])
+        mar_bs = Route.objects.filter(code=request.GET['mar'])
+        mar_time = RoutePoint.objects.filter(route= mar_bs,stop= stop)
+        route = Route.objects.get(code=request.GET['mar'])
+    except ObjectDoesNotExist:
+        raise Http404('Не найдена остановка')
+    except KeyError:
+        raise Http404('Не найден параметр остановки')
 
-    return render(request, 'bus_schedule.html', {'schedules': mar_time, 'mar_bs': mar_bs, 'mar_time': mar_time})
+    return render(request, 'bus_schedule.html', {'schedules': mar_time, 'mar_bs': mar_bs, 'mar_time': mar_time, 'mar_n': route.name})

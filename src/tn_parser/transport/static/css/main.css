@@ -323,7 +323,7 @@ ul{
 
 }
 li{
-height: 30px;
+    height: 30px;
 }
 .time{
     background: #3CB371;
@@ -337,16 +337,7 @@ height: 30px;
     text-align: center;
     width: 100%;
 }
-.arrival{
-    background: #FF6347;
-    border-radius: 10px;
-    box-sizing: border-box;
-    font-size: 18px;
-    font-weight: bolder;
-    margin: auto;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.sch_time{
     text-align: center;
-    width: 100%;
+    font-size: x-large;
 }
-

@@ -22,52 +22,20 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 <div class="container">
-    <h2>Расписание автобуса №Х в будни</h2>
+    <h2>Расписание автобуса № <p>{{ mar_n }}</p> в будни</h2>
     <h3>Остановка:СК "Акрониус" - отправление</h3>
 </div>
 
 <div class="container">
     <div class="row">
-        <div class="col s6">
+        <div class="col s12">
             <div class="time">
                 <ul>
                     {% for schedule in schedules %}
                         <form method="get">
-                            <li><p type="text" name="schedule_b" value="{{ mar_bs }}"> {{ schedule.time }} </p></li>
+                            <li><p class="sch_time" type="text" name="schedule_b" value="{{ mar_bs }}"> {{ schedule.time }} </p></li>
                         </form>
                     {% endfor %}
-                </ul>
-            </div>
-        </div>
-
-        <div class="col s6">
-            <div class="arrival">
-                <ul>
-                    <li class="past1">06:05</li>
-                    <li class="past2">06:15</li>
-                    <li class="past3">06:25</li>
-                    <li class="past4">06:35</li>
-                    <li class="past5">06:45</li>
-                    <li class="past6">06:55</li>
-                    <li>07:05</li>
-                    <li>07:15</li>
-                    <li>07:25</li>
-                    <li>07:35</li>
-                    <li>07:45</li>
-                    <li>07:55</li>
-                    <li>08:05</li>
-                    <li>08:15</li>
-                    <li>08:25</li>
-                    <li>08:35</li>
-                    <li>08:45</li>
-                    <li>08:55</li>
-                    <li>09:05</li>
-                    <li>09:15</li>
-                    <li>09:25</li>
-                    <li>09:35</li>
-                    <li>09:45</li>
-                    <li>09:55</li>
-                    <li>10:05</li>
                 </ul>
             </div>
         </div>
