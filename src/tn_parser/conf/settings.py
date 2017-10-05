@@ -159,7 +159,13 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
+
+LANGUAGE_CODE = 'ru-RU'
+
+# Пример вывода: 16 сентября 2012
+TIME_FORMAT = 'H:i'
+
 
 USE_TZ = True
 

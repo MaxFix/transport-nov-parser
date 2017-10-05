@@ -33,7 +33,10 @@
                 <ul>
                     {% for schedule in schedules %}
                         <form method="get">
-                            <li><p class="sch_time" type="text" name="schedule_b" value="{{ mar_bs }}"> {{ schedule.time }} </p></li>
+                            <li><p class="sch_time" type="text" name="schedule_b" value="{{ mar_bs }}">
+
+                                {{ schedule.time }} </p></li>
+
                         </form>
                     {% endfor %}
                 </ul>
